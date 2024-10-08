@@ -394,7 +394,6 @@ public class automataSim {
                 else {
                     numPred++;
                     int currentVal = simulationGrid[row][col];
-                    System.out.println("Predator at (" + row + ", " + col + ") has health: " + currentVal);
 
                     //checks if prey is around to eat
                     if (preyCount > 0) {
@@ -407,7 +406,7 @@ public class automataSim {
                         simulationGrid[newRowCoord][newColCoord] = preyVal - 1;
                         simulationGrid[row][col] = 0;
                         alreadyMoved[newRowCoord][newColCoord] = true;
-                        System.out.println("ate a prey");
+                        
                     } //removes an hp from predll
                     else if (emptyCount == 0) {
                         if (currentVal == 1) {

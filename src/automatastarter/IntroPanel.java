@@ -27,9 +27,9 @@ public class IntroPanel extends javax.swing.JPanel {
     BufferedImage lion;
     BufferedImage deer;
     private Timer animationTimer;
-    int lionX = 0;
+    int lionX = -900;
     int lionY = 100;
-    int deerX = 300;
+    int deerX = -300;
     int deerY = 100;
     int lionSpeed = 10;
     boolean eaten = false;
@@ -76,7 +76,7 @@ public class IntroPanel extends javax.swing.JPanel {
         public void actionPerformed(ActionEvent ae) {
             //moves lion until it catches up with deer
             lionX+= lionSpeed;
-            deerX += (lionSpeed/2);
+            deerX += (lionSpeed-3);
             
             //hides deer when lion catches up
             if(lionX > deerX - 200){
@@ -110,6 +110,7 @@ public class IntroPanel extends javax.swing.JPanel {
 
         GameButton = new javax.swing.JButton();
         infoButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setMaximumSize(new java.awt.Dimension(900, 500));
@@ -132,25 +133,34 @@ public class IntroPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setText("PREDATOR PREY SIMULATION");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(426, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(196, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(187, 187, 187))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(400, 400, 400)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(infoButton)
-                    .addComponent(GameButton))
-                .addGap(402, 402, 402))
+                    .addComponent(GameButton)
+                    .addComponent(infoButton))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addGap(149, 149, 149)
                 .addComponent(GameButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(infoButton)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -175,5 +185,6 @@ public class IntroPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton GameButton;
     private javax.swing.JButton infoButton;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

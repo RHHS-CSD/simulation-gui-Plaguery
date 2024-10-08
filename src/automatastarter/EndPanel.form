@@ -28,18 +28,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="397" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="359" max="-2" attributes="0"/>
               <Component id="againButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="420" max="32767" attributes="0"/>
+              <EmptySpace pref="369" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
               <Component id="againButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="268" max="32767" attributes="0"/>
+              <EmptySpace pref="267" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,10 +47,11 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="againButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="PlayAgain"/>
+        <Property name="text" type="java.lang.String" value="RETURN TO START SCREEN"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="againButtonMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="againButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

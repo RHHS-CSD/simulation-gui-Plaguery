@@ -38,10 +38,15 @@ public class EndPanel extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(900, 500));
         setMinimumSize(new java.awt.Dimension(900, 500));
 
-        againButton.setText("PlayAgain");
+        againButton.setText("RETURN TO START SCREEN");
         againButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 againButtonMouseClicked(evt);
+            }
+        });
+        againButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                againButtonActionPerformed(evt);
             }
         });
 
@@ -50,23 +55,28 @@ public class EndPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(397, 397, 397)
+                .addGap(359, 359, 359)
                 .addComponent(againButton)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(369, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(209, 209, 209)
+                .addGap(210, 210, 210)
                 .addComponent(againButton)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void againButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_againButtonMouseClicked
         // TODO add your handling code here:
+        //switches to intro when clicked
         switcher.switchToCard(IntroPanel.CARD_NAME);
     }//GEN-LAST:event_againButtonMouseClicked
+
+    private void againButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_againButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_againButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

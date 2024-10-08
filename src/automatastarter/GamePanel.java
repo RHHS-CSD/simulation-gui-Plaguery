@@ -38,11 +38,10 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener {
     CardSwitcher switcher; // This is the parent panel
     Timer animTimer;
     // Image img1 = Toolkit.getDefaultToolkit().getImage("yourFile.jpg");
-    BufferedImage img1;
+
     //variables to control your animation elements
 
-    int x = 3;
-    int y = 3;
+
     int panelHeight;
     int panelWidth;
     int interval;
@@ -176,12 +175,11 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener {
             // here you decide what you want to happen if a particular key is pressed
             System.out.println("llll" + key);
             switch(key){
-                case "d": x+=2; break;
-                case "x": animTimer.stop(); switcher.switchToCard(EndPanel.CARD_NAME); break;
+                case "x" -> {
+                    animTimer.stop(); switcher.switchToCard(EndPanel.CARD_NAME);
+                }
             }
-            if (key.equals("d")) {
-                x = x + 2;
-            }
+
             
         }
 
