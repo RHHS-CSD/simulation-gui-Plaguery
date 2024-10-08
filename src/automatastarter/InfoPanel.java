@@ -38,6 +38,10 @@ public class InfoPanel extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(900, 500));
+        setMinimumSize(new java.awt.Dimension(900, 500));
+        setPreferredSize(new java.awt.Dimension(900, 500));
+
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,11 +51,13 @@ public class InfoPanel extends javax.swing.JPanel {
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setText("This simulation simulates predator prey dynamics. \n\nRULES\nPredators are RED, prey are BLACK, and empty tiles are WHITE\nPredators and prey move in order from left to right, row per row. \nNeighbours are the 4 adjacent spaces surrounding a tile\nPrey starve when there are no empty spaces around them\nPrey reproduce at a rate of 10% when there is both an empty space and another prey as a neighbour\nPredators die after not eating a prey for 20 turns\nPredators reproduce at a rate of 5% when they have eaten a prey in the last 10 turns and have both a prey and an empty spot as neighbours\n\nBUTTONS\nStart - begins the simulation. Also resumes if pasued\nStop - stops the simulation. Progress is still kept\nReset - generates a random new simulation\nDropdown - allows user to select between 3 preset templates for simulation. Alternating alternates between prey and predators in a \ncheckerboard pattern, lines creates alternating lines of predators and prey, and four corners is filled with prey except for four corners, which\nhold the predators.\nSlider - this allows the user to adjust the speed of the simulation.");
         jTextArea1.setCaretColor(new java.awt.Color(242, 242, 242));
         jScrollPane1.setViewportView(jTextArea1);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("ABOUT SIMULATION");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -64,20 +70,20 @@ public class InfoPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backButton)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(329, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(357, 357, 357)
                 .addComponent(jLabel1)
-                .addGap(321, 321, 321))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(jLabel1)
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(backButton)
                 .addContainerGap())

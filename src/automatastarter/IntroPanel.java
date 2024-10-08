@@ -85,8 +85,8 @@ public class IntroPanel extends javax.swing.JPanel {
                 //loops over when lion reaches end of screen
                 if(lionX > getWidth()){
      
-                    lionX = -500;
-                    deerX = 0;
+                    lionX = -900;
+                    deerX = -300;
                     eaten = false;
                 }
                 
@@ -111,6 +111,12 @@ public class IntroPanel extends javax.swing.JPanel {
         GameButton = new javax.swing.JButton();
         infoButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 204));
+        setMaximumSize(new java.awt.Dimension(900, 500));
+        setMinimumSize(new java.awt.Dimension(900, 500));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(900, 500));
+
         GameButton.setText("Game");
         GameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +124,7 @@ public class IntroPanel extends javax.swing.JPanel {
             }
         });
 
-        infoButton.setText("I don't know why I'm here");
+        infoButton.setText("HELP!");
         infoButton.setToolTipText("");
         infoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,24 +136,21 @@ public class IntroPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(426, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(GameButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(infoButton)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                    .addComponent(infoButton)
+                    .addComponent(GameButton))
+                .addGap(402, 402, 402))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
+                .addGap(181, 181, 181)
                 .addComponent(GameButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(infoButton)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -1,7 +1,5 @@
 package automatastarter;
 
-
-
 /*
      * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
      * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
@@ -18,18 +16,16 @@ public class automataSim {
     public int gridRows;
     public int gridColumns;
 
-
     public int preyVal;
     public int[][] simulationGrid;
     public int[][] printGrid;
     public final int[] rowMove = {0, -1, 0, 1};
     public final int[] colMove = {1, 0, -1, 0};
     public boolean[][] alreadyMoved;
-    
+
     public int numPrey;
     public int numPred;
-    
-    
+
     //inits according to template options
     public automataSim(int rowNum, int colNum, int preyValue, int pattern) {
         gridRows = rowNum;
@@ -38,52 +34,47 @@ public class automataSim {
         simulationGrid = new int[gridRows][gridColumns];
         printGrid = new int[gridRows][gridColumns];
         alreadyMoved = new boolean[gridRows][gridColumns];
-        
+
         //generates checkerboard pattern
-        if(pattern == 0){
+        if (pattern == 0) {
             boolean isPred = true;
-            for(int i = 0; i < rowNum; i++){
-                if(rowNum % 2 == 0){
+            for (int i = 0; i < rowNum; i++) {
+                if (rowNum % 2 == 0) {
                     isPred = !isPred;
                 }
-                for(int j = 0; j < colNum; j++){
+                for (int j = 0; j < colNum; j++) {
                     simulationGrid[i][j] = isPred ? preyVal - 1 : preyVal;
                     isPred = !isPred;
-                    numPred = isPred ? (numPred+1) : numPred;
-                    numPrey = isPred ? numPrey : (numPrey +1);
+                    numPred = isPred ? (numPred + 1) : numPred;
+                    numPrey = isPred ? numPrey : (numPrey + 1);
                 }
             }
-        }
-        
-        //generates lines
-        else if(pattern == 1){
-           boolean isPred = true;
-            for(int i = 0; i < rowNum; i++){
+        } //generates lines
+        else if (pattern == 1) {
+            boolean isPred = true;
+            for (int i = 0; i < rowNum; i++) {
                 isPred = !isPred;
-               for(int j = 0; j < colNum; j++){
-                   simulationGrid[i][j] = isPred ? preyVal - 1 : preyVal;
-                    numPred = isPred ? (numPred+1) : numPred;
-                    numPrey = isPred ? numPrey : (numPrey +1);
-               }
-           }
-        }
-        
+                for (int j = 0; j < colNum; j++) {
+                    simulationGrid[i][j] = isPred ? preyVal - 1 : preyVal;
+                    numPred = isPred ? (numPred + 1) : numPred;
+                    numPrey = isPred ? numPrey : (numPrey + 1);
+                }
+            }
+        } //generates four corners
+        else if (pattern == 2) {
+            for (int i = 0; i < rowNum; i++) {
+                for (int j = 0; j < colNum; j++) {
+                    simulationGrid[i][j] = preyVal;
+                    numPrey++;
+                }
+            }
 
-        //generates four corners
-        else if(pattern == 2){
-            for(int i = 0; i < rowNum; i++){
-               for(int j = 0; j < colNum; j++){
-                   simulationGrid[i][j] = preyVal;
-                   numPrey++;
-               }
-           }
-            
-           simulationGrid[0][0] = preyVal-1;
-           simulationGrid[rowNum - 1][0] = preyVal-1;
-           simulationGrid[rowNum - 1][colNum - 1] = preyVal-1;
-           simulationGrid[0][colNum - 1] = preyVal-1;
-           numPrey -= 4;
-           numPred += 4;
+            simulationGrid[0][0] = preyVal - 1;
+            simulationGrid[rowNum - 1][0] = preyVal - 1;
+            simulationGrid[rowNum - 1][colNum - 1] = preyVal - 1;
+            simulationGrid[0][colNum - 1] = preyVal - 1;
+            numPrey -= 4;
+            numPred += 4;
         }
     }
 
@@ -100,7 +91,7 @@ public class automataSim {
         simulationGrid = new int[gridRows][gridColumns];
         printGrid = new int[gridRows][gridColumns];
         alreadyMoved = new boolean[gridRows][gridColumns];
-        
+
         numPred = predNum;
         numPrey = preyNum;
         int rowCoord;
@@ -306,25 +297,27 @@ public class automataSim {
         return randIndex;
     }
 
-    
-    public void step(){
+    //moves through ENTIRE graph
+    public void step() {
         //resets vars
         numPred = 0;
         numPrey = 0;
-            for (boolean[] row :alreadyMoved) {
-                Arrays.fill(row, false);
-            }
+        for (boolean[] row : alreadyMoved) {
+            Arrays.fill(row, false);
+        }
 
-            //iterates through every possible item 
-            for (int row = 0; row < gridRows; row++) {
-                for (int col = 0; col < gridColumns; col++) {
-                    move(row, col);
+        //iterates through every possible item 
+        for (int row = 0; row < gridRows; row++) {
+            for (int col = 0; col < gridColumns; col++) {
+                move(row, col);
 
-                }
             }
+        }
     }
+
+    //moves for ONE coordinate
     public void move(int row, int col) {
-        
+
         if (alreadyMoved[row][col] == false) {
 
             //checks status and skips if coord is empty
@@ -369,7 +362,7 @@ public class automataSim {
 
                 //if prey
                 if (status == 2) {
-                    
+
                     //checks if prey starves
                     if (emptyCount == 0) {
                         simulationGrid[row][col] = 0;
@@ -403,7 +396,6 @@ public class automataSim {
                     int currentVal = simulationGrid[row][col];
                     System.out.println("Predator at (" + row + ", " + col + ") has health: " + currentVal);
 
-
                     //checks if prey is around to eat
                     if (preyCount > 0) {
 
@@ -416,11 +408,10 @@ public class automataSim {
                         simulationGrid[row][col] = 0;
                         alreadyMoved[newRowCoord][newColCoord] = true;
                         System.out.println("ate a prey");
-                    } 
-                    //removes an hp from predll
+                    } //removes an hp from predll
                     else if (emptyCount == 0) {
-                        if(currentVal == 1){
-                            numPred -=1;
+                        if (currentVal == 1) {
+                            numPred -= 1;
                         }
                         simulationGrid[row][col] = currentVal - 1;
                     } else {
